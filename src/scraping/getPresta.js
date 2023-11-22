@@ -7,8 +7,8 @@ const userName = 'INITIELY001';
 const password = 't63ia63GFFUp';
 const downloadPath = path.resolve('./download');
 
-let chrome: any = {};
-let puppeteer: any;
+let chrome = {};
+let puppeteer;
 
 if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
   chrome = require('chrome-aws-lambda');
