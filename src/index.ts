@@ -12,8 +12,8 @@ app.get('/ping', (_req: Request, res: Response) => {
   return res.send('pong 🏓');
 });
 
-app.get('/start', (_req: Request, res: Response) => {
-  getPresta();
+app.get('/start', async (_req: Request, res: Response) => {
+  await getPresta();
   return res.send('Done !');
 });
 
