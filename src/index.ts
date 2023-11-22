@@ -17,6 +17,10 @@ app.get('/start', async (_req: Request, res: Response) => {
   return res.send('Done !');
 });
 
+app.get('/hello', (_req: Request, res: Response) => {
+  return res.send('Hello 👋');
+});
+
 app.listen(port, () => {
   return console.log(`Server is listening on ${port}`);
 });
