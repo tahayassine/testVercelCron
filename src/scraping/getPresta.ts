@@ -1,4 +1,3 @@
-import puppeteer from 'puppeteer';
 import path from 'path';
 
 const prestinfoUrl =
@@ -8,14 +7,33 @@ const userName = 'INITIELY001';
 const password = 't63ia63GFFUp';
 const downloadPath = path.resolve('./download');
 
+let chrome: any = {};
+let puppeteer: any;
+
+if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+  chrome = require('chrome-aws-lambda');
+  puppeteer = require('puppeteer-core');
+} else {
+  puppeteer = require('puppeteer');
+}
+
 const getPresta = async () => {
+  let options = {};
+
+  if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+    options = {
+      args: [...chrome.args, '--hide-scrollbars', '--disable-web-security'],
+      defaultViewport: chrome.defaultViewport,
+      executablePath: await chrome.executablePath,
+      headless: true,
+      ignoreHTTPSErrors: true,
+    };
+  }
+
   // Start a Puppeteer session with:
   // - a visible browser (`headless: false` - easier to debug because you'll see the browser in action)
   // - no default viewport (`defaultViewport: null` - website page will in full width and height)
-  const browser = await puppeteer.launch({
-    headless: true,
-    defaultViewport: null,
-  });
+  const browser = await puppeteer.launch(options);
 
   // Open a new page
   const page = await browser.newPage();
