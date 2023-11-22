@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/dist",
+      "schedule": "0 5 * * *"
+    }
+  ]
+}

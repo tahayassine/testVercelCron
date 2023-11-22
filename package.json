@@ -1,0 +1,23 @@
+{
+  "name": "testvercelcron",
+  "version": "1.0.0",
+  "description": "testing clon in vercel",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tahayassine/testVercelCron.git"
+  },
+  "author": "taha yassine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tahayassine/testVercelCron/issues"
+  },
+  "homepage": "https://github.com/tahayassine/testVercelCron#readme",
+  "devDependencies": {
+    "typescript": "^5.3.2"
+  }
+}
