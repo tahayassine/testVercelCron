@@ -17,6 +17,8 @@ const scrapeLogic = async (res) => {
   try {
     const page = await browser.newPage();
 
+    await page.setDefaultNavigationTimeout(0);
+
     await page.goto('https://developer.chrome.com/');
 
     // Set screen size
